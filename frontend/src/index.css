@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+/*
+  FarmManager design system — modern SaaS (Farmbrite-inspired),
+  forest green + clean white, expressive brand type.
+*/
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --color-brand-950: #0c1f17;
+  --color-brand-900: #123028;
+  --color-brand-800: #1a4034;
+  --color-brand-700: #215544;
+  --color-leaf-600: #1f8a4c;
+  --color-leaf-500: #27a35a;
+  --color-leaf-400: #3dbc70;
+  --color-mist-50: #f6f8f6;
+  --color-mist-100: #eef2ef;
+  --color-mist-200: #dce5de;
+  --color-ink-900: #122018;
+  --color-ink-700: #3a4a40;
+  --color-ink-500: #6b7a70;
+  --color-soil-950: #0c1f17;
+  --color-soil-900: #123028;
+  --color-soil-800: #1a4034;
+  --color-soil-700: #215544;
+  --color-cream-50: #f6f8f6;
+  --color-cream-100: #eef2ef;
+  --color-wheat-400: #c9a227;
+  --color-wheat-300: #dbb84a;
+}
+
+:root {
+  --color-danger: #c45c4a;
+  --radius-panel: 1rem;
+  --shadow-soft: 0 12px 40px rgba(12, 31, 23, 0.08);
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-ink-900);
+  background: var(--color-mist-50);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Shared app chrome */
+.fm-panel {
+  border: 1px solid rgba(18, 48, 40, 0.08);
+  background: #fff;
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.fm-btn {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fm-btn:hover {
+  transform: translateY(-1px);
+}
+
+.fm-btn-primary {
+  background: var(--color-leaf-600);
+  color: #fff;
+}
+
+.fm-btn-primary:hover {
+  background: var(--color-leaf-500);
+}
+
+.fm-btn-dark {
+  background: var(--color-brand-900);
+  color: #fff;
+}
+
+.fm-btn-dark:hover {
+  background: var(--color-brand-800);
+}
+
+.fm-btn-ghost {
+  background: transparent;
+  color: var(--color-ink-900);
+  border: 1px solid rgba(18, 48, 40, 0.15);
+}
+
+.fm-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(18, 48, 40, 0.14);
+  background: #fff;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fm-input:focus {
+  border-color: var(--color-leaf-500);
+  box-shadow: 0 0 0 3px rgba(39, 163, 90, 0.15);
+}
+
+.fm-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  border: 1px solid rgba(18, 48, 40, 0.08);
+  background: #fff;
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 640px) {
+  .fm-input,
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  .fm-btn {
+    padding: 0.6rem 1rem;
+  }
+}
+
+@keyframes fm-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fm-kenburns {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes fm-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fm-float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(1deg);
+  }
+}
+
+@keyframes fm-pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fm-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.fm-animate-in {
+  animation: fm-fade-up 0.7s ease both;
+}
+
+.fm-animate-in-delay {
+  animation: fm-fade-up 0.7s ease 0.15s both;
+}
+
+.fm-animate-in-delay-2 {
+  animation: fm-fade-up 0.7s ease 0.3s both;
+}
+
+.fm-animate-in-delay-3 {
+  animation: fm-fade-up 0.8s ease 0.45s both;
+}
+
+.fm-hero-bg {
+  animation: fm-kenburns 22s ease-out forwards;
+}
+
+.fm-float {
+  animation: fm-float 5s ease-in-out infinite;
+}
+
+.fm-float-slow {
+  animation: fm-float-slow 7s ease-in-out infinite;
+}
+
+.fm-pulse-orb {
+  animation: fm-pulse-soft 6s ease-in-out infinite;
+}
+
+.fm-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.fm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fm-hero-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(39, 163, 90, 0.35), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 20%, rgba(61, 140, 90, 0.25), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 70% 80%, rgba(201, 162, 39, 0.15), transparent 45%),
+    linear-gradient(135deg, #0c1f17 0%, #123028 45%, #1a4034 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-animate-in,
+  .fm-animate-in-delay,
+  .fm-animate-in-delay-2,
+  .fm-animate-in-delay-3,
+  .fm-hero-bg,
+  .fm-float,
+  .fm-float-slow,
+  .fm-pulse-orb,
+  .fm-btn:hover {
+    animation: none;
+    transform: none;
+  }
+
+  .fm-reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

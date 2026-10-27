@@ -1,0 +1,18 @@
+# Core framework
+# Django 5.0 supports XAMPP MariaDB 10.4; Django 6+ needs MariaDB 10.11+
+Django>=5.0,<5.1
+djangorestframework>=3.15,<3.16
+djangorestframework-simplejwt>=5.3
+
+# Cross-origin & filtering
+django-cors-headers>=4.3
+django-filter>=24.0
+
+# Environment & database drivers
+python-dotenv>=1.0
+PyMySQL>=1.1           # MySQL/MariaDB via phpMyAdmin / XAMPP
+psycopg2-binary>=2.9   # PostgreSQL (optional)
+
+# Production extras (optional)
+gunicorn>=22.0
+whitenoise>=6.6
