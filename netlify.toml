@@ -1,0 +1,11 @@
+# Monorepo: SPA lives in /frontend. Netlify must publish the Vite build,
+# not the Django repo root (that is what caused the 404).
+[build]
+  command = "npm --prefix frontend ci && npm --prefix frontend run build"
+  publish = "frontend/dist"
+
+# React Router: all paths serve index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
